@@ -176,16 +176,20 @@ export default {
     // 清除高亮显示带来的副作用 （如果是高亮情况下弹框的内容是html元素）
     highlightConversion(data) {
       const { email, nickname, username } = data
-      this.form.email = this.htmlChangeText(email)
-      this.form.nickname = this.htmlChangeText(nickname)
-      this.form.username = this.htmlChangeText(username)
+      this.form.email = email ? this.htmlChangeText(email) : ''
+      this.form.nickname = nickname ? this.htmlChangeText(nickname) : ''
+      this.form.username = username ? this.htmlChangeText(username) : ''
     },
     htmlChangeText(string) {
       if (string.indexOf('</span>') === -1) {
-      return string
+        return string
       } else {
-      const newStr = string.replace(new RegExp('<span style="color: #1890ff"', 'ig'), '').replace(new RegExp('</span>', 'ig'), '').replace(new RegExp('>', 'ig'), '').replace(new RegExp(' ', 'g'), '')
-      return newStr
+        const newStr = string
+          .replace(new RegExp('<span style="color: #1890ff"', 'ig'), '')
+          .replace(new RegExp('</span>', 'ig'), '')
+          .replace(new RegExp('>', 'ig'), '')
+          .replace(new RegExp(' ', 'g'), '')
+        return newStr
       }
     },
 

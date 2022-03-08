@@ -193,7 +193,7 @@ export default {
     // 将参数写在路由地址中
     refresh() {
       this.$router.push({
-        path: '/jurisdiction/userRole',
+        path: '/authority/userRole',
         query: this.listQuery
       })
     },

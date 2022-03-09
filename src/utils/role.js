@@ -30,7 +30,7 @@ export function setMenu(menu) {
     }
       const obj = {
         name: item.name,
-        path: item.redirect,
+        path: item.url,
         id: item.id,
         pid: item.pid,
         hidden: !!item.hidden,
